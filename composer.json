@@ -6,6 +6,8 @@
     "token"
   ],
   "license": "MIT",
+  "type": "library",
+  "license": "(Apache-2.0 and MIT)",
   "require": {
     "php": ">=7.4",
     "dts/ebay-sdk-php": "^18.0"
