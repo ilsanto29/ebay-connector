@@ -1,18 +1,11 @@
 {
   "name": "ilsanto29/ebay-connector",
-<<<<<<< HEAD
-=======
   "description": "ebay simple connector",
->>>>>>> 3b8422c67d4cd252a984fd599cf30a25d23a088e
   "keywords": [
     "ebay",
     "oauth",
     "token"
   ],
-<<<<<<< HEAD
-  "license": "MIT",
-=======
->>>>>>> 3b8422c67d4cd252a984fd599cf30a25d23a088e
   "type": "library",
   "license": "(Apache-2.0 and MIT)",
   "require": {
@@ -27,11 +20,7 @@
   ],
   "autoload": {
     "psr-4": {
-<<<<<<< HEAD
       "ilsanto29\\ebayConnector\\": "src/"
-=======
-      "ilsanto29\\": ""
->>>>>>> 3b8422c67d4cd252a984fd599cf30a25d23a088e
     }
   }
 }
