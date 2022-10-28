@@ -1,11 +1,11 @@
 {
   "name": "ilsanto29/ebay-connector",
+  "description": "ebay simple connector",
   "keywords": [
     "ebay",
     "oauth",
     "token"
   ],
-  "license": "MIT",
   "type": "library",
   "license": "(Apache-2.0 and MIT)",
   "require": {
