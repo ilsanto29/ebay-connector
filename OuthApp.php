@@ -33,7 +33,6 @@ class OuthApp
      */
     private $debug = false;
 
-    private $pathToFileToStoreAppToken;
 
     /**
      * @var array
@@ -105,7 +104,7 @@ class OuthApp
         }
 
         file_put_contents(
-            $this->pathToFileToStoreAppToken,
+            $this->absPathToFileToStoreUserAccessRefreshToken,
             json_encode([
                 'validUntil' =>
                     time() + (int) $response->expires_in,
@@ -115,10 +114,6 @@ class OuthApp
         return $this->applicationAccessToken = $response->access_token;
     }
 
-
-    private function getAppTokenFromStorage() {
-        return null;
-    }
     /**
      * @param array $config
      * @throws Exception
@@ -143,13 +138,6 @@ class OuthApp
         }
         $this->setRuName($config["ruName"]);
 
-        if( empty( $config["pathToFileToStoreAppToken"] ) ) {
-            throw new Exception(
-                'You must specify "pathToFileToStoreAppToken" where the application save you app store token'
-            );
-        }
-
-        $this->setPathToFileToStoreAppToken($config["pathToFileToStoreAppToken"]);
         /**
          * Set debug mode
          */
@@ -252,71 +240,6 @@ class OuthApp
     public function setAuthorizationCode(string $authorizationCode): void
     {
         $this->authorizationCode = $authorizationCode;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPathToFileToStoreAppToken()
-    {
-        return $this->pathToFileToStoreAppToken;
-    }
-
-    /**
-     * @param mixed $pathToFileToStoreAppToken
-     */
-    public function setPathToFileToStoreAppToken($pathToFileToStoreAppToken): void
-    {
-        $this->pathToFileToStoreAppToken = $pathToFileToStoreAppToken;
-    }
-
-    /**
-     * @return array
-     */
-    public function getScopeForClientCredentialGrantType(): array
-    {
-        return $this->scopeForClientCredentialGrantType;
-    }
-
-    /**
-     * @param array $scopeForClientCredentialGrantType
-     */
-    public function setScopeForClientCredentialGrantType(array $scopeForClientCredentialGrantType): void
-    {
-        $this->scopeForClientCredentialGrantType = $scopeForClientCredentialGrantType;
-    }
-
-    /**
-     * @return array
-     */
-    public function getScopeForAuthorizationCodeGrantType(): array
-    {
-        return $this->scopeForAuthorizationCodeGrantType;
-    }
-
-    /**
-     * @param array $scopeForAuthorizationCodeGrantType
-     */
-    public function setScopeForAuthorizationCodeGrantType(array $scopeForAuthorizationCodeGrantType): void
-    {
-        $this->scopeForAuthorizationCodeGrantType = $scopeForAuthorizationCodeGrantType;
-    }
-
-
-    /**
-     * @param array $scope
-     * @return \DTS\eBaySDK\OAuth\Services\OAuthService
-     */
-    private function getOAuthService($scope)
-    {
-        return
-            new OAuthService([
-                'credentials' => $this->credentials,
-                'debug' => $this->debug,
-                'ruName' => $this->ruName,
-                'sandbox' => $this->sandbox,
-                'scope' => $scope,
-            ]);
     }
 
 
