@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 namespace ilsanto29\ebayConnector;
+=======
+namespace ilsanto29;
+>>>>>>> 1587b53ebdc6a422ff85193f60fbca5a443fe90d
 
 use DTS\eBaySDK\OAuth\Services\OAuthService;
 
