@@ -1,0 +1,26 @@
+{
+  "name": "ilsanto29/ebay-connector",
+  "description": "ebay simple connector",
+  "keywords": [
+    "ebay",
+    "oauth",
+    "token"
+  ],
+  "type": "library",
+  "license": "(Apache-2.0 and MIT)",
+  "require": {
+    "php": ">=7.4",
+    "dts/ebay-sdk-php": "^18.0"
+  },
+  "authors": [
+    {
+      "name": "ilsanto29",
+      "email": "ilsanto29@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ilsanto29\\ebayConnector\\": "src/"
+    }
+  }
+}
